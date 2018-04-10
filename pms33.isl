@@ -1,10 +1,10 @@
 //ADDED Check Pickup Event - for Break Enforcement to warn if picking up another server's check. 
 // - PJohnson 04/23/2012 
 
-//Manzana - Edited from Stanford's SIM
+//86 90 91  - Edited from 80's SIM
 //discount all wine on Tuesdays disc#754
 // - JGuenther 08/18/2014
-
+//Jerimy/Patty 2/13/2018 Applied WWD discount to Rest, Bar & Cafe only.
 
 //VARIABLES
 var EmpSeq			: A50  	//define employee sequence number - emp_seq
@@ -295,7 +295,7 @@ if @weekday = 2
     mc = 0
       for i = 1 to @numdtlt
 		if @Dtl_Type[i] = "M"
-		  if @Dtl_Famgrp[i] = 25 AND @DTL_IS_VOID[i] = 0
+		  if ((@RVC = 1 OR @RVC = 2 OR @RVC = 3) AND @Dtl_Famgrp[i] = 25 AND @DTL_IS_VOID[i] = 0)
 		    mc = mc + @Dtl_Qty[i]
 		  endif
 		endif
